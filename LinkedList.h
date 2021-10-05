@@ -1,5 +1,5 @@
 //
-// Created by Pavel on 10/5/2021.
+// Created by Pavel Kilko on 10/5/2021.
 //
 
 #ifndef LAB1_LINKEDLIST_H
@@ -16,6 +16,10 @@ private:
 
 public:
     ArrayList();
+
+    void push_back(T);
+
+    void push_front(T);
 };
 
 #endif //LAB1_LINKEDLIST_H
