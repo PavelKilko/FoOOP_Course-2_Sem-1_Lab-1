@@ -45,6 +45,14 @@ public:
     int get_count_of_sides() const { return countOfSides; }
     double get_full_probability() const { return fullProbability; }
     auto *get_front_side() { return sides.get_front(); }
+
+    friend std::ostream& operator<<(std::ostream&, const Dice&);
+
+    friend std::ostream& operator<<(std::ostream&, const Side&);
+
+    friend bool operator< (const Dice&, const Dice&);
+
+    friend bool operator< (const Side&, const Side&);
 };
 
 #endif //LAB1_DICE_H
