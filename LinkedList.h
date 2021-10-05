@@ -40,4 +40,17 @@ public:
     void quick_sort(int, int);
 };
 
+template <class T>
+class LinkedList {
+private:
+    class ListNode {
+    public:
+        T value;
+        ListNode *next = nullptr;
+        ListNode *prev = nullptr;
+    } *front, *back;
+
+    int length;
+};
+
 #endif //LAB1_LINKEDLIST_H
