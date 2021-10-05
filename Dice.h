@@ -72,4 +72,8 @@ public:
     friend bool operator< (const ExpectedSum&, const ExpectedSum&);
 };
 
+LinkedList<ExpectedSum> find_expected_sum_combinations(LinkedList<Dice>&);
+
+int compare(const LinkedList<ExpectedSum>&, const LinkedList<ExpectedSum>&, int, ExpectedSum&);
+
 #endif //LAB1_DICE_H

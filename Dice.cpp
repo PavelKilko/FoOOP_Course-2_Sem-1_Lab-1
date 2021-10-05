@@ -102,3 +102,125 @@ bool operator< (const ExpectedSum &s1, const ExpectedSum &s2)
     else
         return s1.sumProbability < s1.sumProbability;
 }
+
+LinkedList<ExpectedSum> find_expected_sum_combinations(LinkedList<Dice> &k)
+{
+    LinkedList<ExpectedSum> c;
+    LinkedList<ExpectedSum> buffer;
+    auto *pointerCurrentDice = k.get_front();
+    while(pointerCurrentDice)
+    {
+        Dice currentDice = pointerCurrentDice->value;
+        if(buffer.is_empty())
+        {
+            auto *pointerCurrentSide = currentDice.get_front_side();
+            while(pointerCurrentSide)
+            {
+                ExpectedSum s(pointerCurrentSide->value.number, pointerCurrentSide->value.dropProbability);
+                buffer.push_back(s);
+                pointerCurrentSide = pointerCurrentSide->next;
+            }
+        }
+        else
+        {
+            auto *pointerCurrentSide = currentDice.get_front_side();
+            while(pointerCurrentSide)
+            {
+                auto *pointerCurrentExpectedSum = buffer.get_front();
+                while(pointerCurrentExpectedSum)
+                {
+                    ExpectedSum s(pointerCurrentExpectedSum->value.sumValue + pointerCurrentSide->value.number,
+                                  pointerCurrentExpectedSum->value.sumProbability * pointerCurrentSide->value.dropProbability);
+                    c.push_back(s);
+                    pointerCurrentExpectedSum = pointerCurrentExpectedSum->next;
+                }
+                pointerCurrentSide = pointerCurrentSide->next;
+            }
+            while(!buffer.is_empty())
+            {
+                buffer.pop_back();
+            }
+            while(!c.is_empty())
+            {
+                ExpectedSum s = c.pop_front();
+                buffer.push_back(s);
+            }
+        }
+        pointerCurrentDice = pointerCurrentDice->next;
+    }
+    buffer.merge_sort();
+    ExpectedSum prev = buffer.pop_front();
+    while(!buffer.is_empty())
+    {
+        ExpectedSum curr = buffer.pop_front();
+        if(prev.sumValue == curr.sumValue)
+        {
+            prev.sumProbability += curr.sumProbability;
+        }
+        else
+        {
+            c.push_back(prev);
+            prev = curr;
+        }
+    }
+    c.push_back(prev);
+    return c;
+}
+
+int compare(const LinkedList<ExpectedSum> &c1, const LinkedList<ExpectedSum> &c2, int sumValue, ExpectedSum &s)
+{
+    ExpectedSum s1, s2;
+    bool flag1 = false, flag2 = false;
+    auto *currentExpectedSum1 = c1.get_front();
+    auto *currentExpectedSum2 = c2.get_front();
+    while((currentExpectedSum1 || currentExpectedSum2) && (!flag1 || !flag2))
+    {
+        if(currentExpectedSum1)
+        {
+            if(currentExpectedSum1->value.sumValue == sumValue)
+            {
+                s1.update(currentExpectedSum1->value.sumValue, currentExpectedSum1->value.sumProbability);
+                flag1 = true;
+            }
+            currentExpectedSum1 = currentExpectedSum1->next;
+        }
+        if(currentExpectedSum2)
+        {
+            if(currentExpectedSum2->value.sumValue == sumValue)
+            {
+                s2.update(currentExpectedSum2->value.sumValue, currentExpectedSum2->value.sumProbability);
+                flag2 = true;
+            }
+            currentExpectedSum2 = currentExpectedSum2->next;
+        }
+    }
+
+    if (!flag1 && !flag2)
+        return -1;
+    if (flag1 && !flag2)
+    {
+        s = s1;
+        return 1;
+    }
+    if (!flag1 && flag2)
+    {
+        s = s2;
+        return 2;
+    }
+
+    if (s1.sumProbability > s2.sumProbability)
+    {
+        s = s1;
+        return 1;
+    }
+    if (s2.sumProbability > s1.sumProbability)
+    {
+        s = s2;
+        return 2;
+    }
+    else
+    {
+        s = s1;
+        return 3;
+    }
+}
