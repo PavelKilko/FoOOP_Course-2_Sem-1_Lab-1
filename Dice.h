@@ -55,4 +55,11 @@ public:
     friend bool operator< (const Side&, const Side&);
 };
 
+class ExpectedSum
+{
+public:
+    int sumValue;
+    double sumProbability;
+};
+
 #endif //LAB1_DICE_H
