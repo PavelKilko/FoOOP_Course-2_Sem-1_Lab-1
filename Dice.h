@@ -34,6 +34,11 @@ private:
         }
     };
     LinkedList<Side> sides;
+
+public:
+    Dice();
+
+    explicit Dice(int);
 };
 
 #endif //LAB1_DICE_H
