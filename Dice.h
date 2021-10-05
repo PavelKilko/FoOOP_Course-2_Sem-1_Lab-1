@@ -41,6 +41,10 @@ public:
     explicit Dice(int);
 
     void add_side(int, double);
+
+    int get_count_of_sides() const { return countOfSides; }
+    double get_full_probability() const { return fullProbability; }
+    auto *get_front_side() { return sides.get_front(); }
 };
 
 #endif //LAB1_DICE_H
