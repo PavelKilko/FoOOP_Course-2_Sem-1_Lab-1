@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Dice.h"
+#include "List.h"
 
 int main()
 {
