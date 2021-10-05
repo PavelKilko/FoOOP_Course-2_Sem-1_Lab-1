@@ -198,3 +198,12 @@ void LinkedList<T>::push_front(T n)
         front = newListNode;
     }
 }
+
+template<typename T>
+bool LinkedList<T>::is_empty()
+{
+    if (length == 0)
+        return true;
+    else
+        return false;
+}

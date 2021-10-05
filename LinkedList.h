@@ -59,6 +59,10 @@ public:
     void push_back(T);
 
     void push_front(T);
+
+    bool is_empty();
+
+    
 };
 
 #endif //LAB1_LINKEDLIST_H
