@@ -34,7 +34,7 @@ void Dice::add_side(int n, double dP)
     sides.push_back(s);
     sides.merge_sort();
     countOfSides++;
-};
+}
 
 std::ostream& operator<<(std::ostream& out, const Dice &d)
 {
