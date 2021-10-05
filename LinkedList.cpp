@@ -207,3 +207,64 @@ bool LinkedList<T>::is_empty()
     else
         return false;
 }
+
+template<typename T>
+T LinkedList<T>::pop_back()
+{
+    T res;
+    if (is_empty())
+        return res;
+    length--;
+    res = back->value;
+    ListNode *currentListNode;
+    currentListNode = back->prev;
+    if (!currentListNode)
+    {
+        delete back;
+        back = nullptr;
+        front = back;
+    }
+    else
+    {
+        delete back;
+        back = currentListNode;
+        back->next = nullptr;
+    }
+
+    return res;
+}
+
+template<typename T>
+T LinkedList<T>::pop_front()
+{
+    T res;
+    if (is_empty())
+        return res;
+    length--;
+    res = front->value;
+    ListNode *currentListNode;
+    currentListNode = front->next;
+    if (!currentListNode)
+    {
+        delete front;
+        front = nullptr;
+        back = front;
+    }
+    else
+    {
+        delete front;
+        front = currentListNode;
+        front->prev = nullptr;
+    }
+
+    return res;
+}
+
+template<typename T>
+void LinkedList<T>::clear()
+{
+    while(!is_empty())
+    {
+        pop_back();
+    }
+}

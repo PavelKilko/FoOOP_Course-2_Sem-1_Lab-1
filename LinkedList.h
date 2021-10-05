@@ -62,7 +62,12 @@ public:
 
     bool is_empty();
 
-    
+    T pop_back();
+
+    T pop_front();
+
+    void clear();
+
 };
 
 #endif //LAB1_LINKEDLIST_H
