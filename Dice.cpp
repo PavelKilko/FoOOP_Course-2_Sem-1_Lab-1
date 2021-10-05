@@ -70,3 +70,15 @@ bool operator< (const Dice::Side &s1, const Dice::Side &s2)
     else
         return s1.dropProbability < s2.dropProbability;
 }
+
+ExpectedSum::ExpectedSum()
+{
+    sumValue = 0;
+    sumProbability = 1;
+}
+
+ExpectedSum::ExpectedSum(int sV, double sP)
+{
+    sumValue = sV;
+    sumProbability = sP;
+}

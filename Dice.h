@@ -60,6 +60,10 @@ class ExpectedSum
 public:
     int sumValue;
     double sumProbability;
+
+    ExpectedSum();
+
+    ExpectedSum(int, double);
 };
 
 #endif //LAB1_DICE_H
