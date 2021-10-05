@@ -51,6 +51,8 @@ private:
     } *front, *back;
 
     int length;
+public:
+    LinkedList();
 };
 
 #endif //LAB1_LINKEDLIST_H

@@ -146,3 +146,12 @@ void ArrayList<T>::quick_sort(int start, int end)
         quick_sort(p+1, end);
     }
 }
+
+template<typename T>
+LinkedList<T>::LinkedList()
+{
+    length = 0;
+    front = nullptr;
+    back = nullptr;
+}
+
