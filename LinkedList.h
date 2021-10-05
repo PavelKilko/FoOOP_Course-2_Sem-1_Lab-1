@@ -68,6 +68,9 @@ public:
 
     void clear();
 
+    int get_length(){ return length; }
+
+    ListNode * get_front() const { return front; }
 };
 
 #endif //LAB1_LINKEDLIST_H
