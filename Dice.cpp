@@ -1,5 +1,5 @@
 //
-// Created by Pavel on 10/6/2021.
+// Created by Pavel Kilko on 10/6/2021.
 //
 
 #include "Dice.h"

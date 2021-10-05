@@ -66,6 +66,8 @@ public:
 
     void push_front(T);
 
+    void print();
+
     bool is_empty();
 
     T pop_back();

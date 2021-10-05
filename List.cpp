@@ -200,6 +200,18 @@ void LinkedList<T>::push_front(T n)
 }
 
 template<typename T>
+void LinkedList<T>::print()
+{
+    ListNode *currentListNode = front;
+    while(currentListNode)
+    {
+        std::cout << currentListNode->value << ' ';
+        currentListNode = currentListNode->next;
+    }
+    std::cout << std::endl;
+}
+
+template<typename T>
 bool LinkedList<T>::is_empty()
 {
     if (length == 0)
