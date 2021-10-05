@@ -39,6 +39,8 @@ public:
     Dice();
 
     explicit Dice(int);
+
+    void add_side(int, double);
 };
 
 #endif //LAB1_DICE_H

@@ -23,3 +23,15 @@ Dice::Dice(int c)
     }
 }
 
+void Dice::add_side(int n, double dP)
+{
+    if (fullProbability == 1)
+        return;
+    Side s(n, dP);
+    if (fullProbability + s.dropProbability > 1)
+        s.dropProbability = 1 - fullProbability;
+    fullProbability += s.dropProbability;
+    sides.push_back(s);
+    sides.merge_sort();
+    countOfSides++;
+};
