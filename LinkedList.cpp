@@ -47,3 +47,35 @@ void ArrayList<T>::clear()
     frontPos = 50000;
     backPos = 50001;
 }
+
+template<typename T>
+T ArrayList<T>::pop_back()
+{
+    if (is_empty())
+        return 0;
+    length--;
+    backPos--;
+    T res = array[backPos];
+    if (length == 0)
+    {
+        frontPos = 50000;
+        backPos = 50001;
+    }
+    return res;
+}
+
+template<typename T>
+T ArrayList<T>::pop_front()
+{
+    if (is_empty())
+        return 0;
+    length--;
+    frontPos++;
+    T res = array[frontPos];
+    if (is_empty())
+    {
+        frontPos = 50000;
+        backPos = 50001;
+    }
+    return res;
+}

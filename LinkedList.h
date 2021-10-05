@@ -24,6 +24,10 @@ public:
     bool is_empty();
 
     void clear();
+
+    T pop_back();
+
+    T pop_front();
 };
 
 #endif //LAB1_LINKEDLIST_H
