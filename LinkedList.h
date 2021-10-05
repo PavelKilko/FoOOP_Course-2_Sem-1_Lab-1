@@ -20,6 +20,10 @@ public:
     void push_back(T);
 
     void push_front(T);
+
+    bool is_empty();
+
+    void clear();
 };
 
 #endif //LAB1_LINKEDLIST_H

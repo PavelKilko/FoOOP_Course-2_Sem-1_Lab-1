@@ -30,3 +30,20 @@ void ArrayList<T>::push_front(T n)
     length++;
     frontPos--;
 }
+
+template<typename T>
+bool ArrayList<T>::is_empty()
+{
+    if (length == 0)
+        return true;
+    else
+        return false;
+}
+
+template<typename T>
+void ArrayList<T>::clear()
+{
+    length = 0;
+    frontPos = 50000;
+    backPos = 50001;
+}
