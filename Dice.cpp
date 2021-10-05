@@ -88,3 +88,17 @@ void ExpectedSum::update(int sV, double sP)
     sumValue += sV;
     sumProbability *= sP;
 }
+
+std::ostream& operator<<(std::ostream& out, const ExpectedSum &s)
+{
+    out << "[" << s.sumValue << ", " << s.sumProbability << "]";
+    return out;
+}
+
+bool operator< (const ExpectedSum &s1, const ExpectedSum &s2)
+{
+    if (s1.sumValue != s2.sumValue)
+        return s1.sumValue < s2.sumValue;
+    else
+        return s1.sumProbability < s1.sumProbability;
+}

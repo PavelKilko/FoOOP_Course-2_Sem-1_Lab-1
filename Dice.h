@@ -66,6 +66,10 @@ public:
     ExpectedSum(int, double);
 
     void update(int, double);
+
+    friend std::ostream& operator<<(std::ostream&, const ExpectedSum&);
+
+    friend bool operator< (const ExpectedSum&, const ExpectedSum&);
 };
 
 #endif //LAB1_DICE_H
