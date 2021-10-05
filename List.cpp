@@ -2,7 +2,7 @@
 // Created by Pavel Kilko on 10/5/2021.
 //
 
-#include "LinkedList.h"
+#include "List.h"
 
 template<typename T>
 ArrayList<T>::ArrayList() {

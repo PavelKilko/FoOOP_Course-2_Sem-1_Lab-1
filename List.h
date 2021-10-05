@@ -2,8 +2,8 @@
 // Created by Pavel Kilko on 10/5/2021.
 //
 
-#ifndef LAB1_LINKEDLIST_H
-#define LAB1_LINKEDLIST_H
+#ifndef LAB1_LIST_H
+#define LAB1_LIST_H
 
 #include <iostream>
 
@@ -81,4 +81,4 @@ public:
     void merge_sort();
 };
 
-#endif //LAB1_LINKEDLIST_H
+#endif //LAB1_LIST_H
