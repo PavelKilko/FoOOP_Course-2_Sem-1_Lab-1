@@ -53,6 +53,12 @@ private:
 
     int length;
 
+    ListNode *merge(ListNode *first, ListNode *second);
+
+    ListNode *split(ListNode *front);
+
+    ListNode *merge_sort(ListNode *front);
+
 public:
     LinkedList();
 
@@ -71,6 +77,8 @@ public:
     int get_length(){ return length; }
 
     ListNode * get_front() const { return front; }
+
+    void merge_sort();
 };
 
 #endif //LAB1_LINKEDLIST_H

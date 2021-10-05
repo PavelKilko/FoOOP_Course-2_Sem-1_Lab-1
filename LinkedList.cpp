@@ -268,3 +268,61 @@ void LinkedList<T>::clear()
         pop_back();
     }
 }
+
+template<typename T>
+typename LinkedList<T>::ListNode * LinkedList<T>::merge(ListNode *first, ListNode *second)
+{
+    if (!first)
+        return second;
+
+    if (!second)
+        return first;
+
+    if (first->value < second->value)
+    {
+        first->next = merge(first->next,second);
+        first->next->prev = first;
+        first->prev = nullptr;
+        return first;
+    }
+    else
+    {
+        second->next = merge(first,second->next);
+        second->next->prev = second;
+        second->prev = nullptr;
+        return second;
+    }
+}
+
+template<typename T>
+typename LinkedList<T>::ListNode * LinkedList<T>::split(ListNode *front)
+{
+    ListNode *fast = front, *slow = front;
+    while (fast->next && fast->next->next)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    ListNode *temp = slow->next;
+    slow->next = nullptr;
+    return temp;
+}
+
+template<typename T>
+typename LinkedList<T>::ListNode * LinkedList<T>::merge_sort(ListNode *front)
+{
+    if (!front || !front->next)
+        return front;
+    ListNode *second = split(front);
+
+    front = merge_sort(front);
+    second = merge_sort(second);
+
+    return merge(front,second);
+}
+
+template<typename T>
+void LinkedList<T>::merge_sort()
+{
+    front = merge_sort(front);
+}
