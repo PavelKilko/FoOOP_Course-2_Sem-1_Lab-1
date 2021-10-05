@@ -64,6 +64,8 @@ public:
     ExpectedSum();
 
     ExpectedSum(int, double);
+
+    void update(int, double);
 };
 
 #endif //LAB1_DICE_H

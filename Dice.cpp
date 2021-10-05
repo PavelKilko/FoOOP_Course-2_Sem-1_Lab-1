@@ -82,3 +82,9 @@ ExpectedSum::ExpectedSum(int sV, double sP)
     sumValue = sV;
     sumProbability = sP;
 }
+
+void ExpectedSum::update(int sV, double sP)
+{
+    sumValue += sV;
+    sumProbability *= sP;
+}
