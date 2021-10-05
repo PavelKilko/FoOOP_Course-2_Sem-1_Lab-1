@@ -41,7 +41,8 @@ public:
 };
 
 template <class T>
-class LinkedList {
+class LinkedList
+{
 private:
     class ListNode {
     public:
@@ -51,8 +52,13 @@ private:
     } *front, *back;
 
     int length;
+
 public:
     LinkedList();
+
+    void push_back(T);
+
+    void push_front(T);
 };
 
 #endif //LAB1_LINKEDLIST_H

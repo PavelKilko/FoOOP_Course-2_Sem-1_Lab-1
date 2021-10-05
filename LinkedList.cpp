@@ -155,3 +155,46 @@ LinkedList<T>::LinkedList()
     back = nullptr;
 }
 
+template<typename T>
+void LinkedList<T>::push_back(T n)
+{
+    ListNode *newListNode;
+    newListNode = new class ListNode;
+    newListNode->value = n;
+    newListNode->next = nullptr;
+    length++;
+    if (!back)
+    {
+        newListNode->prev = nullptr;
+        front = newListNode;
+        back = newListNode;
+    }
+    else
+    {
+        newListNode->prev = back;
+        back->next = newListNode;
+        back = newListNode;
+    }
+}
+
+template<typename T>
+void LinkedList<T>::push_front(T n)
+{
+    ListNode *newListNode;
+    newListNode = new class ListNode;
+    newListNode->value = n;
+    newListNode->prev = nullptr;
+    length++;
+    if (!front)
+    {
+        newListNode->next = nullptr;
+        front = newListNode;
+        back = newListNode;
+    }
+    else
+    {
+        newListNode->next = front;
+        front->prev = newListNode;
+        front = newListNode;
+    }
+}
