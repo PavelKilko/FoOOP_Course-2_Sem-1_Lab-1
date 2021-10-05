@@ -13,6 +13,9 @@ private:
     int frontPos;
     int backPos;
     T array[100000];
+
+public:
+    ArrayList();
 };
 
 #endif //LAB1_LINKEDLIST_H

@@ -3,3 +3,10 @@
 //
 
 #include "LinkedList.h"
+
+template<typename T>
+ArrayList<T>::ArrayList() {
+    length = 0;
+    frontPos = 50000;
+    backPos = 50001;
+}
