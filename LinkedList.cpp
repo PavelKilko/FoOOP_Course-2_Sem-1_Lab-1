@@ -89,3 +89,60 @@ void ArrayList<T>::print()
     }
     std::cout << std::endl;
 }
+
+template<typename T>
+void ArrayList<T>::insertion_sort(int start, int end)
+{
+    if (start < 0 || start > length-1 ||
+        end < 0 || end > length-1)
+        return;
+    for (int j = frontPos+1+start; j <= frontPos+1+end; j++)
+    {
+        int i = j-1;
+        T key = array[j];
+        while (i >= frontPos+1+start && array[i] > key)
+        {
+            array[i+1] = array[i];
+            i--;
+        }
+        array[i+1] = key;
+    }
+}
+
+template<typename T>
+void ArrayList<T>::quick_sort(int start, int end)
+{
+    if (start < 0 || start > length-1 ||
+        end < 0 || end > length-1)
+        return;
+    if(start < end)
+    {
+        int p;
+        T pivot = (array[frontPos+1+start] + array[frontPos+1+end]) / 2;
+        int i = start;
+        int j = end;
+        while(true)
+        {
+            while(array[frontPos+1+i] < pivot)
+                i++;
+            while(array[frontPos+1+j] > pivot)
+                j--;
+            if (i >= j)
+            {
+                p = j;
+                break;
+            }
+            else
+            {
+                T addit;
+                addit = array[frontPos+1+i];
+                array[frontPos+1+i] = array[frontPos+1+j];
+                array[frontPos+1+j] = addit;
+                i++;
+                j--;
+            }
+        }
+        quick_sort(start, p);
+        quick_sort(p+1, end);
+    }
+}

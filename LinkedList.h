@@ -34,6 +34,10 @@ public:
     void print();
 
     int get_length(){ return length; }
+
+    void insertion_sort(int, int);
+
+    void quick_sort(int, int);
 };
 
 #endif //LAB1_LINKEDLIST_H
