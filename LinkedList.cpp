@@ -79,3 +79,13 @@ T ArrayList<T>::pop_front()
     }
     return res;
 }
+
+template<typename T>
+void ArrayList<T>::print()
+{
+    for(int i = frontPos + 1; i < backPos; i++)
+    {
+        std::cout << array[i] << " ";
+    }
+    std::cout << std::endl;
+}

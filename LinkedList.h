@@ -5,6 +5,8 @@
 #ifndef LAB1_LINKEDLIST_H
 #define LAB1_LINKEDLIST_H
 
+#include <iostream>
+
 template <class T>
 class ArrayList
 {
@@ -28,6 +30,10 @@ public:
     T pop_back();
 
     T pop_front();
+
+    void print();
+
+    int get_length(){ return length; }
 };
 
 #endif //LAB1_LINKEDLIST_H
